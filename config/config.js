@@ -1,4 +1,4 @@
-config HiHi
+config
 /* Magic Mirror Config Sample
  *
  * By Michael Teeuw http://michaelteeuw.nl
