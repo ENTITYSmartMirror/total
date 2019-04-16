@@ -1,4 +1,3 @@
-config Hi!!
 /* Magic Mirror Config Sample
  *
  * By Michael Teeuw http://michaelteeuw.nl
@@ -10,13 +9,13 @@ config Hi!!
  */
 
 var config = {
-	address: "localhost", // Address to listen on, can be:
+	address: "0.0.0.0", // Address to listen on, can be:
 	                      // - "localhost", "127.0.0.1", "::1" to listen on loopback interface
 	                      // - another specific IPv4/6 to listen on a specific interface
 	                      // - "", "0.0.0.0", "::" to listen on any interface
 	                      // Default, when address config is left out, is "localhost"
 	port: 8080,
-	ipWhitelist: ["127.0.0.1", "::ffff:127.0.0.1", "::1"], // Set [] to allow all IP addresses
+	ipWhitelist: ["127.0.0.1", "::ffff:127.0.0.1", "::1","172.16.100.133", "::ffff:172.16.100.133", "::1"], // Set [] to allow all IP addresses
 	                                                       // or add a specific IPv4 of 192.168.1.5 :
 	                                                       // ["127.0.0.1", "::ffff:127.0.0.1", "::1", "::ffff:192.168.1.5"],
 	                                                       // or IPv4 range of 192.168.3.0 --> 192.168.3.15 use CIDR format :
@@ -27,6 +26,54 @@ var config = {
 	units: "metric",
 
 	modules: [
+		//0
+		{
+			module: 'MMM-iFrame',
+			position: "bottom_center",	// This can be any of the regions.
+			config: {
+				// See 'Configuration options' for more information.
+					url: ["https://comic.naver.com/webtoon/weekday.nhn"],  // as many URLs you want or you can just ["ENTER IN URL"] if single URL.
+					updateInterval: 0.5 * 60 * 1000, // rotate URLs every 30 seconds
+					width: "2000", // width of iframe
+					height: "1800", // height of iframe
+					frameWidth: "950", // width of embedded iframe, height is beeing calculated by aspect ratio of iframe
+				}
+		},
+		//1
+		{
+			module: "MMM-EmbedYoutube1", 
+			position: "bottom_bar",	
+			config: {
+				video_id: "w3jLJU7DT5E",
+				searchlist1: "쯔위",
+				loop: true
+			}
+		},
+		//2	
+        {
+            module: "MMM-Modulebar1",
+            position: "top_left", 
+            classes: "default everyone", 
+            config: {
+						
+                
+            }
+		},
+		//3
+		{
+            module: "MMM-Modulebar",
+            position: "top_left",
+            classes: "default everyone", 
+            config: {
+						
+
+            
+            }
+        },
+        
+        {
+            module: "MMM-Dynamic-Modules",
+        },
 		{
 			module: "alert",
 		},
@@ -36,44 +83,9 @@ var config = {
 		},
 		{
 			module: "clock",
-			position: "top_left"
+			position: "top_right"
 		},
-		{
-			module: "calendar",
-			header: "US Holidays",
-			position: "top_left",
-			config: {
-				calendars: [
-					{
-						symbol: "calendar-check-o ",
-						url: "webcal://www.calendarlabs.com/templates/ical/US-Holidays.ics"
-					}
-				]
-			}
-		},
-		{
-			module: "compliments",
-			position: "lower_third"
-		},
-		{
-			module: "currentweather",
-			position: "top_right",
-			config: {
-				location: "New York",
-				locationID: "",  //ID from http://bulk.openweathermap.org/sample/; unzip the gz file and find your city
-				appid: "YOUR_OPENWEATHER_API_KEY"
-			}
-		},
-		{
-			module: "weatherforecast",
-			position: "top_right",
-			header: "Weather Forecast",
-			config: {
-				location: "New York",
-				locationID: "5128581",  //ID from http://www.openweathermap.org/help/city_list.txt
-				appid: "YOUR_OPENWEATHER_API_KEY"
-			}
-		},
+		
 		{
 			module: "newsfeed",
 			position: "bottom_bar",
@@ -88,6 +100,16 @@ var config = {
 				showPublishDate: true
 			}
 		},
+
+		{
+			module: "MMM-Testpython",
+			position: "top_right",
+			config:{
+				foo:"yellow"
+			}
+			
+		},
+
 	]
 
 };

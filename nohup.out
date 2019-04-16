@@ -1,0 +1,135 @@
+
+> magicmirror@2.5.0 start /home/pi/MagicMirror
+> sh run-start.sh
+
+
+> magicmirror@2.5.0 start /home/pi/MagicMirror
+> sh run-start.sh
+
+Starting MagicMirror: v2.5.0
+Loading config ...
+Loading module helpers ...
+No helper found for module: helloworld.
+No helper found for module: clock.
+All module helpers loaded.
+Starting server on port 8080 ... 
+Server started ...
+Sockets connected & modules started ...
+Starting MagicMirror: v2.5.0
+Loading config ...
+Loading module helpers ...
+No helper found for module: helloworld.
+No helper found for module: clock.
+All module helpers loaded.
+Starting server on port 8080 ... 
+Server started ...
+Sockets connected & modules started ...
+Launching application.
+Whoops! There was an uncaught exception...
+{ Error: listen EADDRINUSE 127.0.0.1:8080
+    at Object._errnoException (util.js:1024:11)
+    at _exceptionWithHostPort (util.js:1046:20)
+    at Server.setupListenHandle [as _listen2] (net.js:1351:14)
+    at listenInCluster (net.js:1392:12)
+    at GetAddrInfoReqWrap.doListen [as callback] (net.js:1501:7)
+    at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:97:10)
+  code: 'EADDRINUSE',
+  errno: 'EADDRINUSE',
+  syscall: 'listen',
+  address: '127.0.0.1',
+  port: 8080 }
+MagicMirror will not quit, but it might be a good idea to check why this happened. Maybe no internet connection?
+If you think this really is an issue, please open an issue on GitHub: https://github.com/MichMich/MagicMirror/issues
+Launching application.
+
+> magicmirror@2.5.0 start /home/pi/MagicMirror
+> sh run-start.sh
+
+
+> magicmirror@2.5.0 start /home/pi/MagicMirror
+> sh run-start.sh
+
+Starting MagicMirror: v2.5.0
+Loading config ...
+Loading module helpers ...
+No helper found for module: helloworld.
+No helper found for module: clock.
+All module helpers loaded.
+Starting server on port 8080 ... 
+Server started ...
+Sockets connected & modules started ...
+Whoops! There was an uncaught exception...
+{ Error: listen EADDRINUSE 127.0.0.1:8080
+    at Object._errnoException (util.js:1024:11)
+    at _exceptionWithHostPort (util.js:1046:20)
+    at Server.setupListenHandle [as _listen2] (net.js:1351:14)
+    at listenInCluster (net.js:1392:12)
+    at GetAddrInfoReqWrap.doListen [as callback] (net.js:1501:7)
+    at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:97:10)
+  code: 'EADDRINUSE',
+  errno: 'EADDRINUSE',
+  syscall: 'listen',
+  address: '127.0.0.1',
+  port: 8080 }
+MagicMirror will not quit, but it might be a good idea to check why this happened. Maybe no internet connection?
+If you think this really is an issue, please open an issue on GitHub: https://github.com/MichMich/MagicMirror/issues
+Launching application.
+Starting MagicMirror: v2.5.0
+Loading config ...
+Loading module helpers ...
+No helper found for module: helloworld.
+No helper found for module: clock.
+All module helpers loaded.
+Starting server on port 8080 ... 
+Server started ...
+Sockets connected & modules started ...
+Whoops! There was an uncaught exception...
+{ Error: listen EADDRINUSE 127.0.0.1:8080
+    at Object._errnoException (util.js:1024:11)
+    at _exceptionWithHostPort (util.js:1046:20)
+    at Server.setupListenHandle [as _listen2] (net.js:1351:14)
+    at listenInCluster (net.js:1392:12)
+    at GetAddrInfoReqWrap.doListen [as callback] (net.js:1501:7)
+    at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:97:10)
+  code: 'EADDRINUSE',
+  errno: 'EADDRINUSE',
+  syscall: 'listen',
+  address: '127.0.0.1',
+  port: 8080 }
+MagicMirror will not quit, but it might be a good idea to check why this happened. Maybe no internet connection?
+If you think this really is an issue, please open an issue on GitHub: https://github.com/MichMich/MagicMirror/issues
+Launching application.
+
+> magicmirror@2.5.0 start /home/pi/MagicMirror
+> sh run-start.sh
+
+Starting MagicMirror: v2.5.0
+Loading config ...
+Loading module helpers ...
+No helper found for module: helloworld.
+No helper found for module: clock.
+All module helpers loaded.
+Starting server on port 8080 ... 
+Server started ...
+Sockets connected & modules started ...
+Whoops! There was an uncaught exception...
+{ Error: listen EADDRINUSE 127.0.0.1:8080
+    at Object._errnoException (util.js:1024:11)
+    at _exceptionWithHostPort (util.js:1046:20)
+    at Server.setupListenHandle [as _listen2] (net.js:1351:14)
+    at listenInCluster (net.js:1392:12)
+    at GetAddrInfoReqWrap.doListen [as callback] (net.js:1501:7)
+    at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:97:10)
+  code: 'EADDRINUSE',
+  errno: 'EADDRINUSE',
+  syscall: 'listen',
+  address: '127.0.0.1',
+  port: 8080 }
+MagicMirror will not quit, but it might be a good idea to check why this happened. Maybe no internet connection?
+If you think this really is an issue, please open an issue on GitHub: https://github.com/MichMich/MagicMirror/issues
+Launching application.
+Shutting down server...
+Shutting down server...
+Shutting down server...
+Shutting down server...
+Shutting down server...
