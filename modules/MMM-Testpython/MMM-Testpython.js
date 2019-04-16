@@ -33,7 +33,7 @@ Module.register("MMM-Testpython", {
   socketNotificationReceived: function(notification, payload) {
     switch(notification) {
       case "I_DID":
-        console.log("Socket recevied : "+payload)
+        console.log("Socket recevied 1: "+payload)
         var elemk = document.getElementById("divid")
         elemk.innerHTML = payload
         break
