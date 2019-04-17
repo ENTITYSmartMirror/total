@@ -54,7 +54,7 @@ var config = {
             module: "MMM-Modulebar1",
             position: "lower_third", 
 			classes: "default everyone", 
-			header:"원하는 메뉴를 선택해주세요",
+			header:"원하는 메뉴를 선택해주세요12",
             config: {
 						
                 
