@@ -52,8 +52,9 @@ var config = {
 		//2	
         {
             module: "MMM-Modulebar1",
-            position: "top_left", 
-            classes: "default everyone", 
+            position: "lower_third", 
+			classes: "default everyone", 
+			header:"원하는 메뉴를 선택해주세요",
             config: {
 						
                 
@@ -62,7 +63,7 @@ var config = {
 		//3
 		{
             module: "MMM-Modulebar",
-            position: "top_left",
+            position: "center_middle",
             classes: "default everyone", 
             config: {
 						

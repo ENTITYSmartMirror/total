@@ -21,13 +21,13 @@ Module.register("MMM-Modulebar1",{
         // Determines if the border around the buttons should be shown.
         showBorder: false,
         // The minimum width for all the buttons.
-        minWidth: "0px",
+        minWidth: "500px",
         // The minimum height for all the buttons.
-        minHeight: "0px",
+        minHeight: "500px",
         // The location of the symbol relative to the text. Options: left, right, top or bottom
         picturePlacement: "left",
         // The direction of the bar. Options: row, column, row-reverse or column-reverse
-        direction: "column",
+        direction: "row",
 		// The speed of the hide and show animation.
 		animationSpeed: 1000,
         // The default button 1. Add your buttons in the config.
@@ -35,14 +35,14 @@ Module.register("MMM-Modulebar1",{
                     "1": {
 	                  		module: "MMM-iFrame",
 												img:"https://apprecs.org/gp/images/app-icons/300/ec/com.nhn.android.webtoon.jpg",
-												width:"50",
-												height:"50",
+												width:"300",
+												height:"300",
                           },
 										"2": {
 												module: "MMM-Modulebar",
 												img:"https://image.flaticon.com/icons/svg/187/187210.svg",
-												width:"50",
-												height:"50",
+												width:"300",
+												height:"300",
 											},
             }
     },
