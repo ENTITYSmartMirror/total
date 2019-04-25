@@ -91,7 +91,11 @@ Module.register("MMM-Modulebar1",{
 								fetch(data.showUrl);
 								console.log("Visiting show URL: "+data.showUrl);
 							}
-							//한 프레임에 두가지이상의 모듈이 뜨지 않게 하기.
+                            //한 프레임에 두가지이상의 모듈이 뜨지 않게 하기.
+                            if(num==1){
+									                                console.log("modules[i].config.imagePaths: ?"+ modules[i].config.imagePaths);
+																	
+									                            }
 							
 							// 모듈 보이기
 							modules[i].show(self.config.animationSpeed, {force: self.config.allowForce}); 

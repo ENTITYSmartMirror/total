@@ -35,6 +35,7 @@ Module.register("MMM-Testpython", {
       case "I_DID":
         console.log("Socket recevied 1: "+payload)
         var elemk = document.getElementById("divid")
+        Testpythons.sendNotification('BEFORE',1);
         elemk.innerHTML = payload
         break
     }

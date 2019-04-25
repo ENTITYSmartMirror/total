@@ -66,7 +66,15 @@ var config = {
 				foo:"yellow"
 			}
 			
+		},
+	{
+		module: 'MMM-ImageFileWatcher',
+		position: 'middle_center',	// This can be any of the regions.		
+		config: {
+			// See 'Configuration options' for more information.
+			imagePaths: ['modules/MMM-ImageFileWatcher/Images']
 		}
+	}
 	
 
 	]
