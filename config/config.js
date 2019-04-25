@@ -30,7 +30,7 @@ var config = {
 		module: 'MMM-ImageSlideshow',
 		position: 'bottom_left',
 		config: {
-			//imagePaths: ['modules/MMM-Testpython/before']
+			imagePaths: ['modules/MMM-Testpython/nothing']
 		}
 	},
 		
