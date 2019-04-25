@@ -26,6 +26,13 @@ var config = {
 	units: "metric",
 
 	modules: [
+	{
+		module: 'MMM-ImageSlideshow',
+		position: 'bottom_left',
+		config: {
+			//imagePaths: ['modules/MMM-Testpython/before']
+		}
+	},
 		
         {
             module: "MMM-Modulebar1",
@@ -59,14 +66,8 @@ var config = {
 				foo:"yellow"
 			}
 			
-		},
-	{
-		module: 'MMM-ImageSlideshow',
-		position: 'bottom_left',
-		config: {
-			imagePaths: ['modules/MMM-Testpython/before']
 		}
-	}
+	
 
 	]
 

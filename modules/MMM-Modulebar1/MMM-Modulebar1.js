@@ -33,17 +33,12 @@ Module.register("MMM-Modulebar1",{
         // The default button 1. Add your buttons in the config.
         buttons: {
                     "1": {
-	                  		module: "MMM-iFrame",
+	                  		module: "MMM-ImageSlideshow",
 												img:"https://apprecs.org/gp/images/app-icons/300/ec/com.nhn.android.webtoon.jpg",
 												width:"300",
 												height:"300",
                           },
-										"2": {
-												module: "MMM-Modulebar",
-												img:"https://image.flaticon.com/icons/svg/187/187210.svg",
-												width:"300",
-												height:"300",
-											},
+										
             }
     },
 
@@ -97,28 +92,6 @@ Module.register("MMM-Modulebar1",{
 								console.log("Visiting show URL: "+data.showUrl);
 							}
 							//한 프레임에 두가지이상의 모듈이 뜨지 않게 하기.
-							
-							if (modules[i].name == 'MMM-iFrame') {
-								                                console.log("Hiding opend "+ modules[i].name+" ID: "+idnr[1]+"button number"+num);
-
-								                                //modules[5].hide(self.config.animationSpeed, {force: self.config.allowForce});
-								                            }
-							else	if (modules[i].name == 'MMM-Modulebar') {
-									                                console.log("Hiding opend "+ modules[i].name+" ID: "+idnr[1]+"button number"+num);
-	
-									                                //modules[5].hide(self.config.animationSpeed, {force: self.config.allowForce});
-									                            }
-							/*
-							if (modules[i].name == 'MMM-Modulebar') {
-                                console.log("Hiding opend "+ modules[1].config.searchlist1+" ID: "+idnr[1]+ "itemid??"+item.id);
-                                modules[0].hide(self.config.animationSpeed, {force: self.config.allowForce});
-								modules[4].hide(self.config.animationSpeed, {force: self.config.allowForce});
-                            }
-							else if(modules[i].name == 'MMM-iFrame') {
-                                console.log("Hiding opend "+ modules[i+5].name+" ID: "+idnr[1]);
-                                modules[i+5].hide(self.config.animationSpeed, {force: self.config.allowForce});
-                            }
-							*/
 							
 							// 모듈 보이기
 							modules[i].show(self.config.animationSpeed, {force: self.config.allowForce}); 
