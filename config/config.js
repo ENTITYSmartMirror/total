@@ -26,30 +26,7 @@ var config = {
 	units: "metric",
 
 	modules: [
-		//0
-		{
-			module: 'MMM-iFrame',
-			position: "bottom_center",	// This can be any of the regions.
-			config: {
-				// See 'Configuration options' for more information.
-					url: ["https://comic.naver.com/webtoon/weekday.nhn"],  // as many URLs you want or you can just ["ENTER IN URL"] if single URL.
-					updateInterval: 0.5 * 60 * 1000, // rotate URLs every 30 seconds
-					width: "2000", // width of iframe
-					height: "1800", // height of iframe
-					frameWidth: "950", // width of embedded iframe, height is beeing calculated by aspect ratio of iframe
-				}
-		},
-		//1
-		{
-			module: "MMM-EmbedYoutube1", 
-			position: "bottom_bar",	
-			config: {
-				video_id: "w3jLJU7DT5E",
-				searchlist1: "쯔위",
-				loop: true
-			}
-		},
-		//2	
+		
         {
             module: "MMM-Modulebar1",
             position: "lower_third", 
@@ -61,16 +38,7 @@ var config = {
             }
 		},
 		//3
-		{
-            module: "MMM-Modulebar",
-            position: "center_middle",
-            classes: "default everyone", 
-            config: {
-						
-
-            
-            }
-        },
+		
         
         {
             module: "MMM-Dynamic-Modules",
@@ -82,25 +50,7 @@ var config = {
 			module: "updatenotification",
 			position: "top_bar"
 		},
-		{
-			module: "clock",
-			position: "top_right"
-		},
 		
-		{
-			module: "newsfeed",
-			position: "bottom_bar",
-			config: {
-				feeds: [
-					{
-						title: "New York Times",
-						url: "http://www.nytimes.com/services/xml/rss/nyt/HomePage.xml"
-					}
-				],
-				showSourceTitle: true,
-				showPublishDate: true
-			}
-		},
 
 		{
 			module: "MMM-Testpython",
@@ -110,6 +60,13 @@ var config = {
 			}
 			
 		},
+	{
+		module: 'MMM-ImageSlideshow',
+		position: 'bottom_left',
+		config: {
+			imagePaths: ['modules/MMM-Testpython/before']
+		}
+	}
 
 	]
 
