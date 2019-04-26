@@ -10,7 +10,7 @@
  */
 
 //var request = require('request');
-var Modulebarr;
+var Modulebarx;
 Module.register("MMM-Modulebar",{
 	
 	requiresVersion: "2.1.0",
@@ -19,7 +19,7 @@ Module.register("MMM-Modulebar",{
         // Allow the module to force modules to be shown (if hidden and locked by another module ex. profile-switcher).
         allowForce: false,
         // Determines if the border around the buttons should be shown.
-        showBorder: false,
+        showBorder: true,
         // The minimum width for all the buttons.
         minWidth: "0px",
         // The minimum height for all the buttons.
@@ -27,78 +27,23 @@ Module.register("MMM-Modulebar",{
         // The location of the symbol relative to the text. Options: left, right, top or bottom
         picturePlacement: "left",
         // The direction of the bar. Options: row, column, row-reverse or column-reverse
-        direction: "column",
+        direction: "row",
 		// The speed of the hide and show animation.
 		animationSpeed: 1000,
         // The default button 1. Add your buttons in the config.
-        buttons: {
-										"1": {
-												module: "MMM-EmbedYoutube1",
-												width:"50",
-												height:"50",
-												text:"게임",
-												img:"http://2.bp.blogspot.com/-HqSOKIIV59A/U8WP4WFW28I/AAAAAAAAT5U/qTSiV9UgvUY/s1600/icon.png",
-											},
-										"2": {
-												module: "MMM-EmbedYoutube1",
-												img:"https://image.flaticon.com/icons/svg/1628/1628000.svg",
-												width:"50",
-												height:"50",
-												text:"뮤직비디오",
-											},
-										"3": {
-											module: "MMM-EmbedYoutube1",
-											img:"https://image.flaticon.com/icons/svg/254/254072.svg",
-											width:"50",
-											height:"50",
-											text:"영화",
-										},
-										"4": {
-											module: "MMM-EmbedYoutube1",
-											img:"https://image.flaticon.com/icons/svg/1040/1040232.svg",
-											width:"50",
-											height:"50",
-											text:"뉴스",
-										},
-										"5": {
-											module: "MMM-EmbedYoutube1",
-											img:"https://image.flaticon.com/icons/svg/861/861512.svg",
-											width:"50",
-											height:"50",
-											text:"스포츠",
-										},
-										"6": {
-											module: "MMM-EmbedYoutube1",
-											img:"https://image.flaticon.com/icons/svg/135/135644.svg",
-											width:"50",
-											height:"50",
-											text:"먹방",
-										},
-										"7": {
-											module: "MMM-EmbedYoutube1",
-											img:"https://image.flaticon.com/icons/svg/1626/1626000.svg",
-											width:"50",
-											height:"50",
-											text:"여행",
-										},
-										"8": {
-											module: "MMM-EmbedYoutube1",
-											img:"https://image.flaticon.com/icons/svg/356/356764.svg",
-											width:"50",
-											height:"50",
-											text:"유머",
-										},
-										"9": {
-											module: "MMM-Modulebar1",
-											width:"50",
-											height:"50",
-											text:"뒤로가기",
-										},
-											
+		buttons: {
+            "1": {
+				// The modules exact name to be affected.
+				module: "clock",
+				// The text to be displayed in the button.
+				text:	"Clock",
+				// Then symbol from font-awesome!
+                symbol: "clock-o"
             }
+		}
     },
 	start(){
-		Modulebarr=this;
+		Modulebarx=this;
 	},
     // Define required styles.
 	getStyles: function(){
@@ -115,6 +60,7 @@ Module.register("MMM-Modulebar",{
 		for (var num in this.config.buttons) {
 			menu.appendChild(this.createButton(this, num, this.config.buttons[num], this.config.picturePlacement));
         }
+
         return menu;
     },
 
@@ -138,7 +84,7 @@ Module.register("MMM-Modulebar",{
 				// Check if the curent module is the one.
 				if (modules[i].name === data.module) {
 					// Splits out the module number of the module with the same name.
-					var idnr = modules[i].data.identifier.split("_");					
+					var idnr = modules[i].data.identifier.split("_");
 					// Checks if idnum is set in config.js. If it is, it only hides that module, if not hides all modules with the same name.
 					if (idnr[1] == data.idnum || data.idnum == null) {
 						// Check if the module is hidden.
@@ -149,121 +95,17 @@ Module.register("MMM-Modulebar",{
 								fetch(data.showUrl);
 								// Prints the visited hideURL.
 								console.log("Visiting show URL: "+data.showUrl);
-								
 							}
-							// add code
-							
 							if(num==1){
-								Modulebarr.sendNotification('PLAYLISTCHANGE',"YCcE9oGkOw8_롤");			
+								Modulebarx.sendNotification('BEFORE','modules/MMM-Testpython/before');			
 									} 
-							else	if(num==2){
-										Modulebarr.sendNotification('PLAYLISTCHANGE',"ScSn235gQx0_뮤직비디오");			
-											} 
-							else	if(num==3){
-								Modulebarr.sendNotification('PLAYLISTCHANGE',"KUiouwhozkQ_영화");			
-									} 
-							else	if(num==4){
-								Modulebarr.sendNotification('PLAYLISTCHANGE',"L0oei9OH7Yo_뉴스");			
-									}
-							else	if(num==5){
-								Modulebarr.sendNotification('PLAYLISTCHANGE',"Bxg1CqqkzE0_스포츠");			
-									}
-							else	if(num==6){
-								Modulebarr.sendNotification('PLAYLISTCHANGE',"egyB02dbJKE_먹방");			
-									}
-							else	if(num==7){
-								Modulebarr.sendNotification('PLAYLISTCHANGE',"Vw39vVf2HCI_해외여행");			
-									}
-							else	if(num==8){
-								Modulebarr.sendNotification('PLAYLISTCHANGE',"MFWtM11WJn0_몰카");			
-									}
-									
-							// 
+							// Shows the module.
 							modules[i].show(self.config.animationSpeed, {force: self.config.allowForce});
 							// Prints in the console what just happend (adding the ID). 
 							console.log("Showing "+modules[i].name+" ID: "+idnr[1]);
 						}else{
-							if(num==1){
-								if (modules[i].config.video_id == "YCcE9oGkOw8") {
-									                                console.log("modules[i].config.video_id ?"+ modules[i].config.video_id);
-																	modules[i].hide(self.config.animationSpeed, {force: self.config.allowForce});
-									                                //modules[5].hide(self.config.animationSpeed, {force: self.config.allowForce});
-									                            }
-								else
-									Modulebarr.sendNotification('PLAYLISTCHANGE',"YCcE9oGkOw8_롤");			
-									} 
-							else	if(num==2){
-								if (modules[i].config.video_id == "ScSn235gQx0") {
-									                                console.log("modules[i].config.video_id ?"+ modules[i].config.video_id);
-																	modules[i].hide(self.config.animationSpeed, {force: self.config.allowForce});
-									                                //modules[5].hide(self.config.animationSpeed, {force: self.config.allowForce});
-									                            }
-								else
-									Modulebarr.sendNotification('PLAYLISTCHANGE',"ScSn235gQx0_뮤직비디오");	
-											
-									} 
-							else	if(num==3){
-								if (modules[i].config.video_id == "KUiouwhozkQ") {
-									                                console.log("modules[i].config.video_id ?"+ modules[i].config.video_id);
-																	modules[i].hide(self.config.animationSpeed, {force: self.config.allowForce});
-									                                //modules[5].hide(self.config.animationSpeed, {force: self.config.allowForce});
-									                            }
-								else
-									Modulebarr.sendNotification('PLAYLISTCHANGE',"KUiouwhozkQ_영화");	
-											
-									} 
-							else	if(num==4){
-								if (modules[i].config.video_id == "L0oei9OH7Yo") {
-									                                console.log("modules[i].config.video_id ?"+ modules[i].config.video_id);
-																	modules[i].hide(self.config.animationSpeed, {force: self.config.allowForce});
-									                                //modules[5].hide(self.config.animationSpeed, {force: self.config.allowForce});
-									                            }
-								else
-									Modulebarr.sendNotification('PLAYLISTCHANGE',"L0oei9OH7Yo_뉴스");	
-											
-											} 
-							else	if(num==5){
-								if (modules[i].config.video_id == "Bxg1CqqkzE0") {
-									                                console.log("modules[i].config.video_id ?"+ modules[i].config.video_id);
-																	modules[i].hide(self.config.animationSpeed, {force: self.config.allowForce});
-									                                //modules[5].hide(self.config.animationSpeed, {force: self.config.allowForce});
-									                            }
-								else
-									Modulebarr.sendNotification('PLAYLISTCHANGE',"Bxg1CqqkzE0_스포츠");	
-											
-											} 
-							else	if(num==6){
-								if (modules[i].config.video_id == "egyB02dbJKE") {
-									                                console.log("modules[i].config.video_id ?"+ modules[i].config.video_id);
-																	modules[i].hide(self.config.animationSpeed, {force: self.config.allowForce});
-									                                //modules[5].hide(self.config.animationSpeed, {force: self.config.allowForce});
-									                            }
-								else
-									Modulebarr.sendNotification('PLAYLISTCHANGE',"egyB02dbJKE_먹방");	
-											
-											} 
-							else	if(num==7){
-								if (modules[i].config.video_id == "Vw39vVf2HCI") {
-									                                console.log("modules[i].config.video_id ?"+ modules[i].config.video_id);
-																	modules[i].hide(self.config.animationSpeed, {force: self.config.allowForce});
-									                                //modules[5].hide(self.config.animationSpeed, {force: self.config.allowForce});
-									                            }
-								else
-									Modulebarr.sendNotification('PLAYLISTCHANGE',"Vw39vVf2HCI_해외여행");	
-											
-											} 
-							else	if(num==8){
-								if (modules[i].config.video_id == "MFWtM11WJn0") {
-									                                console.log("modules[i].config.video_id ?"+ modules[i].config.video_id);
-																	modules[i].hide(self.config.animationSpeed, {force: self.config.allowForce});
-									                                //modules[5].hide(self.config.animationSpeed, {force: self.config.allowForce});
-									                            }
-								else
-									Modulebarr.sendNotification('PLAYLISTCHANGE',"MFWtM11WJn0_몰카");	
-											
-											} 
 							// Hides the module.
-							
+							modules[i].hide(self.config.animationSpeed, {force: self.config.allowForce});
 							// Prints in the console what just happend (adding the ID). 
 							console.log("Hiding "+modules[i].name+" ID: "+idnr[1]);
 							// Check if there is a "hideURL" defined.
@@ -334,14 +176,7 @@ Module.register("MMM-Modulebar",{
         }
 		// All done. :)
         return item;
-	},
-	
-	notificationReceived: function(notification, payload) {
-		if(notification === "DOM_OBJECTS_CREATED"){
-			this.hide()
-		}
-	}
-	
+    }
 });	
 
 

@@ -28,20 +28,26 @@ var config = {
 	modules: [
 	{
 		module: 'MMM-ImageSlideshow',
-		position: 'bottom_left',
+		position: 'top_center',
 		config: {
-			imagePaths: ['modules/MMM-Testpython/nothing']
+			imagePaths: ['modules/MMM-Testpython/before']
 		}
 	},
 		
         {
-            module: "MMM-Modulebar1",
+            module: "MMM-Modulebar",
             position: "lower_third", 
 			classes: "default everyone", 
-			header:"원하는 메뉴를 선택해주세요12",
+			header:"사진 전후 캡쳐",
             config: {
-						
-                
+				buttons: {
+				"1": {
+					
+					module: "MMM-ImageSlideshow",
+					text: "Current Weather",
+					symbol: "cloud",
+				  },
+				}
             }
 		},
 		//3

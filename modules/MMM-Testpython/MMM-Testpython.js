@@ -23,8 +23,10 @@ Module.register("MMM-Testpython", {
       case "DOM_OBJECTS_CREATED":
       var elem = document.getElementById("clickid")
       elem.addEventListener("click", () => {
+        //
         Testpythons.sendSocketNotification("TEST")
-        console.log("hello~hello~hello~hello~hello~hello~hello~hello~hello~hello~")
+        //
+        console.log(" click success !")
         elem.innerHTML = "click success"       
       }) 
         break
@@ -32,10 +34,12 @@ Module.register("MMM-Testpython", {
   },
   socketNotificationReceived: function(notification, payload) {
     switch(notification) {
-      case "I_DID":
-        console.log("Socket recevied 1: "+payload)
-        var elemk = document.getElementById("divid")
-        Testpythons.sendNotification('BEFORE','modules/MMM-Testpython/before');
+      case "AFTERCLICK":
+        console.log("Socket recevied payload : "+payload)
+        var elemk = document.getElementById("clickid")
+        //
+        Testpythons.sendNotification('SHOWCHANGEDIMAGE');
+        //
         elemk.innerHTML = payload
         break
     }

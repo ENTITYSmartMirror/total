@@ -8,5 +8,5 @@ cv2.imwrite('/home/pi/Desktop/BeautyMirror/modules/MMM-Testpython/before/before.
 
 cap.release()
 cv2.destroyAllWindows()
-print("1")
+print("python success !")
 

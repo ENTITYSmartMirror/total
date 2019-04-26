@@ -14,7 +14,7 @@ module.exports = NodeHelper.create({
 	    PythonShell.run('/home/pi/Desktop/BeautyMirror/modules/MMM-Testpython/before.py', null, function (err, result) {
             if (err) throw err;
             console.log(result);          
-            socketTestpython.sendSocketNotification("I_DID",result);
+            socketTestpython.sendSocketNotification("AFTERCLICK",result);
           });
 	       
         break
