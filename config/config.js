@@ -27,8 +27,17 @@ var config = {
 
 	modules: [
 	{
-		module: 'MMM-ImageSlideshow',
+		module: 'MMM-BeforeImage',
 		position: 'top_center',
+		header:"전 사진 ! ",
+		config: {
+			imagePaths: ['modules/MMM-Testpython/before']
+		}
+	},
+	{
+		module: 'MMM-AfterImage',
+		position: 'top_center',
+		header:"후 사진! ",
 		config: {
 			imagePaths: ['modules/MMM-Testpython/before']
 		}

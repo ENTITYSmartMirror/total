@@ -9,15 +9,24 @@ module.exports = NodeHelper.create({
   
   socketNotificationReceived: function(notification, payload) {
     switch(notification) {
-      case "TEST":
+      case "BEFORECAPTURE":
         console.log("notification : " + notification)
-	    PythonShell.run('/home/pi/Desktop/BeautyMirror/modules/MMM-Testpython/before.py', null, function (err, result) {
+	      PythonShell.run('/home/pi/Desktop/BeautyMirror/modules/MMM-Testpython/before.py', null, function (err, result) {
             if (err) throw err;
             console.log(result);          
-            socketTestpython.sendSocketNotification("AFTERCLICK",result);
+            socketTestpython.sendSocketNotification("BEFORECAPTURESUCCESS",result);
           });
 	       
         break
+      case "AFTERCAPTURE":
+        console.log("notification : " + notification)
+        PythonShell.run('/home/pi/Desktop/BeautyMirror/modules/MMM-Testpython/before2.py', null, function (err, result) {
+          if (err) throw err;
+          console.log(result);          
+          socketTestpython.sendSocketNotification("AFTERCAPTURESUCCESS",result);
+        });
+        
+      break
     }
   }
 }) 
