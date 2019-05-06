@@ -10,11 +10,11 @@
 Module.register("MMM-iFrame",{
 		// Default module config.
 		defaults: {
-                                frameWidth: "300",
+                                frameWidth: "1500",
 				width:"100%",
                                 updateInterval: 0.5 * 60 * 1000,
                                 url: ["http://magicmirror.builders/"],
-                                scrolling: "yes"
+                                scrolling: "no"
 		},
 
         start: function () {
@@ -62,11 +62,6 @@ resume: function() {
                 wrapper.insertAdjacentHTML("afterbegin", html);
 
 		return wrapper;
-        },
-        notificationReceived: function(notification, payload) {
-		if(notification === "DOM_OBJECTS_CREATED"){
-			this.hide()
-		}
 	}
 
 });

@@ -1,10 +1,12 @@
 var Testpythons;
 Module.register("MMM-Testpython", {
+  
 
     defaults: {},
     start: function (){
         Testpythons = this;
     },
+
   
   getDom: function() {
     var element = document.createElement("div")
@@ -12,13 +14,9 @@ Module.register("MMM-Testpython", {
     element.id="divid"
     element.innerHTML = "Hello, World!!! " + this.config.foo
     var subElement = document.createElement("p")
-    subElement.innerHTML = "Click" 
+    subElement.innerHTML = "click"
     subElement.id = "clickid"
-    var subElement2 = document.createElement("p")
-    subElement2.innerHTML = "Click2" 
-    subElement2.id = "clickid2"
     element.appendChild(subElement)
-    element.appendChild(subElement2)
     return element
   },
   
@@ -27,48 +25,132 @@ Module.register("MMM-Testpython", {
       case "DOM_OBJECTS_CREATED":
       var elem = document.getElementById("clickid")
       elem.addEventListener("click", () => {
-        //
-        Testpythons.sendSocketNotification("BEFORECAPTURE")
-        Testpythons.sendNotification("LOADINGBEFORE")
-        //
-        console.log(" click success !")
-        elem.innerHTML = "click success"       
-      }) 
-      var elem2 = document.getElementById("clickid2")
-      elem2.addEventListener("click", () => {
-        //
-        Testpythons.sendSocketNotification("AFTERCAPTURE")
-        Testpythons.sendNotification("LOADINGAFTER")
-        
-        //
-        console.log(" click2 success !")
-        elem2.innerHTML = "click2 success"       
-      }) 
-        break
+        Testpythons.sendSocketNotification("TEST")
+        Testpythons.sendNotification('CHANGE_POSITIONS', 
+        modules = {
+              'MMM-iFrame17':{
+                visible: 'false',
+                position: 'bottom_left',
+              },
+              'MMM-iFrame18':{
+                visible: 'false',
+                position: 'bottom_left',
+              },
+              'MMM-iFrame19':{
+                visible: 'false',
+                position: 'bottom_left',
+              },
+              'MMM-iFrame20':{
+                visible: 'false',
+                position: 'bottom_left',
+              },
+              'MMM-iFrame21':{
+                visible: 'false',
+                position: 'bottom_left',
+              },
+              'MMM-iFrame22':{
+                visible: 'false',
+                position: 'bottom_left',
+              },
+            });
+        console.log("hello~hello~hello~hello~hello~hello~hello~hello~hello~hello~")
+        elem.innerHTML = "click success"   
+        }) 
+      break;
     }
   },
   socketNotificationReceived: function(notification, payload) {
     switch(notification) {
-      case "BEFORECAPTURESUCCESS":
-        console.log("Socket recevied payload : "+payload)
+      case "I_DID":
+        console.log("Socket recevied 1: "+payload)
         var elemk = document.getElementById("clickid")
-        Testpythons.sendNotification("BEFOREIMAGE")
-        //
-        Testpythons.sendNotification('SHOWCHANGEDIMAGE');
-        //
         elemk.innerHTML = payload
-        break
-      case "AFTERCAPTURESUCCESS":
-        console.log("Socket recevied payload : "+payload)
-        var elemk = document.getElementById("clickid")
-        Testpythons.sendNotification("AFTERIMAGE")
-        //
-        Testpythons.sendNotification('SHOWCHANGEDIMAGE');
-        //
-        elemk.innerHTML = payload
+
+        var change;
+        if(payload <= 19){
+          change = 1;
+          console.log(payload);
+          console.log(change);
+        }
+        else if(19 < payload && payload < 30){
+          change = 2;
+          console.log(payload);
+          console.log(change);
+        }
+        else if(29 < payload && payload < 40){
+          change = 3; 
+          console.log(payload);
+          console.log(change);
+        }
+        else if(39 < payload && payload < 50){
+          change = 4;  
+          console.log(payload);
+          console.log(change);
+        }
+        else if(49 < payload){
+          change = 5;
+          console.log(payload);
+          console.log(change);
+        }
+
+          switch(change){
+            case 1 : 
+              this.sendNotification('CHANGE_POSITIONS', 
+              modules = {
+                'MMM-iFrame17':{
+                  visible: 'true',
+                  position: 'top_left',
+                }
+              })
+              break
+            case 2 : 
+              this.sendNotification('CHANGE_POSITIONS', 
+              modules = {
+                'MMM-iFrame18':{
+                  visible: 'true',
+                  position: 'top_left',
+              }
+            })
+            break
+            case 3 : 
+              this.sendNotification('CHANGE_POSITIONS', 
+              modules = {
+                'MMM-iFrame19':{
+                  visible: 'true',
+                  position: 'bottom_left',
+              }
+            })
+            break
+            case 4 : 
+              this.sendNotification('CHANGE_POSITIONS', 
+              modules = {
+                'MMM-iFrame20':{
+                  visible: 'true',
+                  position: 'top_right',
+              }
+            })
+            break
+            case 5 : 
+              this.sendNotification('CHANGE_POSITIONS', 
+              modules = {
+                'MMM-iFrame21':{
+                  visible: 'true',
+                  position: 'top_left',
+              }
+            })
+            break
+            default : 
+              this.sendNotification('CHANGE_POSITIONS', 
+              modules = {
+                'MMM-iFrame22':{
+                  visible: 'true',
+                  position: 'top_left',
+                }
+              })
+            break
+          }    
       break
     }
   }
-
 })
 

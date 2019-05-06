@@ -8,16 +8,16 @@
  *
  * MIT Licensed.
  */
-
+var modulebarr;
 //var request = require('request');
-var Modulebarx;
+
 Module.register("MMM-Modulebar",{
 	
 	requiresVersion: "2.1.0",
 	
     defaults: {
         // Allow the module to force modules to be shown (if hidden and locked by another module ex. profile-switcher).
-        allowForce: false,
+        allowForce: true,
         // Determines if the border around the buttons should be shown.
         showBorder: true,
         // The minimum width for all the buttons.
@@ -25,26 +25,33 @@ Module.register("MMM-Modulebar",{
         // The minimum height for all the buttons.
         minHeight: "0px",
         // The location of the symbol relative to the text. Options: left, right, top or bottom
-        picturePlacement: "left",
+        picturePlacement: "top",
         // The direction of the bar. Options: row, column, row-reverse or column-reverse
         direction: "row",
 		// The speed of the hide and show animation.
-		animationSpeed: 1000,
+		animationSpeed: 300,
+	
         // The default button 1. Add your buttons in the config.
 		buttons: {
-            "1": {
-				// The modules exact name to be affected.
-				module: "clock",
-				// The text to be displayed in the button.
-				text:	"Clock",
-				// Then symbol from font-awesome!
-                symbol: "clock-o"
-            }
+			
+			"1": {
+				module: "MMM-Modulebar1",
+				text:   "남자헤어",
+				img:"https://image.flaticon.com/icons/svg/1751/1751434.svg"
+			},
+
+			"2": {
+				module: "MMM-Modulebar2",
+				text:   "여자헤어",
+				img : "https://image.flaticon.com/icons/svg/1751/1751437.svg"
+			}
 		}
-    },
-	start(){
-		Modulebarx=this;
 	},
+	start(){
+		modulebarr = this;	
+	},
+	
+
     // Define required styles.
 	getStyles: function(){
 		return ["font-awesome.css", "MMM-Modulebar.css"];
@@ -59,8 +66,8 @@ Module.register("MMM-Modulebar",{
 		// Sends each button to the "createButton" function be created.
 		for (var num in this.config.buttons) {
 			menu.appendChild(this.createButton(this, num, this.config.buttons[num], this.config.picturePlacement));
-        }
-
+		}
+		
         return menu;
     },
 
@@ -77,6 +84,8 @@ Module.register("MMM-Modulebar",{
         item.style.minHeight = self.config.minHeight;
 		// Collects all modules loaded in MagicMirror.
 		var modules = MM.getModules();
+		
+
 		// When a button is clicked, the module either gets hidden or shown depending on current module status.
 		item.addEventListener("click", function () {
 			// Lists through all modules for testing.
@@ -88,22 +97,7 @@ Module.register("MMM-Modulebar",{
 					// Checks if idnum is set in config.js. If it is, it only hides that module, if not hides all modules with the same name.
 					if (idnr[1] == data.idnum || data.idnum == null) {
 						// Check if the module is hidden.
-						if (modules[i].hidden) {
-							// Check if there is a "showURL" defined.
-							if (data.showUrl != null) {
-								// Visiting the show URL.
-								fetch(data.showUrl);
-								// Prints the visited hideURL.
-								console.log("Visiting show URL: "+data.showUrl);
-							}
-							if(num==1){
-								Modulebarx.sendNotification('BEFORE','modules/MMM-Testpython/before');			
-									} 
-							// Shows the module.
-							modules[i].show(self.config.animationSpeed, {force: self.config.allowForce});
-							// Prints in the console what just happend (adding the ID). 
-							console.log("Showing "+modules[i].name+" ID: "+idnr[1]);
-						}else{
+						if (!modules[i].hidden) {
 							// Hides the module.
 							modules[i].hide(self.config.animationSpeed, {force: self.config.allowForce});
 							// Prints in the console what just happend (adding the ID). 
@@ -114,6 +108,50 @@ Module.register("MMM-Modulebar",{
 								fetch(data.hideUrl);
 								// Prints the visited hideURL.
 								console.log("Visiting hide URL: "+data.hideUrl);
+							}
+							for (var k = 3; k < 17; k++){
+								console.log("Hiding opend "+ modules[k].name+" ID: "+idnr[1]);
+								modules[k].hide(self.config.animationSpeed, {force: self.config.allowForce});	
+							}
+						}
+						else {
+							// Check if there is a "showURL" defined.
+							if (data.showUrl != null) {
+								// Visiting the show URL.
+								fetch(data.showUrl);
+								// Prints the visited hideURL.
+								console.log("Visiting show URL: "+data.showUrl);
+							}
+							if (modules[i].name == 'MMM-Modulebar2') {
+								console.log("Hiding opend "+ modules[1].name+" ID: "+idnr[1]);
+								modules[1].hide(self.config.animationSpeed, {force: self.config.allowForce});	
+								
+								
+								for (var k = 0; k < 17; k++){
+									console.log("Hiding opend "+ modules[k].name+" ID: "+idnr[1]);
+									modules[k].hide(self.config.animationSpeed, {force: self.config.allowForce});	
+								}
+
+								console.log("Showing "+modules[i].name+" ID: "+idnr[1]);	
+								setTimeout(function(){
+									modules[2].show(self.config.animationSpeed, {force: self.config.allowForce});
+								},500);
+								modulebarr.sendNotification("Modulebar0 is Clicked");
+							}
+							else {
+								console.log("Hiding opend "+ modules[2].name+" ID: "+idnr[1]);			
+								modules[2].hide(self.config.animationSpeed, {force: self.config.allowForce});
+
+								for (var k = 0; k < 17; k++){
+									console.log("Hiding opend "+ modules[k].name+" ID: "+idnr[1]);
+									modules[k].hide(self.config.animationSpeed, {force: self.config.allowForce});	
+								}
+
+								console.log("Showing "+modules[i].name+" ID: "+idnr[1]);	
+								setTimeout(function(){
+								modules[1].show(self.config.animationSpeed, {force: self.config.allowForce});
+								},500);
+								modulebarr.sendNotification("Modulebar0 is Clicked");
 							}
 						}
 					}

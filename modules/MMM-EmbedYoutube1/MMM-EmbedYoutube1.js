@@ -60,7 +60,7 @@ Module.register("MMM-EmbedYoutube1", {
 	notificationReceived: function(notification, payload) {
 		Log.info(this.name + " - received notification: " + notification);
 		
-		if(notification === "DOM_OBJECTS_CREATED"){
+		if(notification === "Modules All Change"){
 			this.hide()
 		}
 		
